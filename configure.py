@@ -7,15 +7,26 @@ import datetime
 
 def usage():
     print (
-        "Unknown command\nUsage: %s config|alias|operator [player]" % sys.argv[0]
+        "Unknown command\nUsage: %s config|alias|command command_to_send" % sys.argv[0]
     )
     sys.exit(2)
 
 
-def add_operator(player=None):
-    if player is not None:
+def send_command(input_command=None):
+    if input_command is not None:
+        final_command="tmux send-keys -t minecraft '"
+
+        for entry in input_command:
+            final_command = final_command + entry + ' '
+
+        final_command = final_command + "' C-m"
+
+        print (
+            "Command [{0}] will be send...".format(final_command)
+        )
+
         os.popen(
-            "tmux send-keys -t minecraft 'op {0}' C-m".format(player)
+            "{0}".format(final_command)
         ).read()
 
 
@@ -117,9 +128,9 @@ if __name__ == "__main__":
             config_file()
         else:
             usage()
-    elif len(sys.argv) == 3:
-        if 'operator' == sys.argv[1] and sys.argv[2] is not None:
-            add_operator(sys.argv[2])
+    elif len(sys.argv) > 2:
+        if 'command' == sys.argv[1] and sys.argv[2:] is not None:
+            send_command(sys.argv[2:])
         else:
             usage()
     else:
