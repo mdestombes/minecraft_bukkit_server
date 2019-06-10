@@ -116,8 +116,8 @@ You can bring your own existing data + configuration and mount it to the `/data`
 ---
 
 ## Expose
-+ Port: __SERVER_PORT__: Minecraft steam port (default: 25565) /!\ change is currently not available.
-+ Port: __DYNMAP_PORT__: Main server port (default: 8123) /!\ change is currently not available.
++ Port: __SERVER_PORT__: Minecraft steam port (default: 25565)
++ Port: __DYNMAP_PORT__: Main server port (default: 8123)
 
 ---
 
