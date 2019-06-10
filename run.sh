@@ -5,14 +5,17 @@ echo "* Minecraft Server launching... ("`date`")"
 echo "************************************************************************"
 
 java -version
+binary=$1
+echo "Binary is '${binary}'"
 
 # Trap management
-[ -p /tmp/FIFO ] && rm /tmp/FIFO
+[[ -p /tmp/FIFO ]] && rm /tmp/FIFO
 mkfifo /tmp/FIFO
 export TERM=linux
 
 # Stop management
 function stop {
+
   echo -e "\n*************************************************"
   echo "* Send stop to Minecraft server"
   echo "*************************************************"
@@ -35,34 +38,41 @@ function stop {
 
 # Stop management
 function init_dynmap {
-  if [ ${FIRST_LAUNCH} -eq 1 ]; then
+
+  if [[ ${FIRST_LAUNCH} -eq 1 ]]; then
     echo -e "\n*************************************************"
     echo "* Specific configuration of Minecraft server..."
     echo "*************************************************"
-    sleep 5
+    echo "Waiting for first intialization..."
+    sleep 30
 
-    while [[ `cat /minecraft/data/logs/latest.log | grep 'Done'` == "" ]]; do
-      sleep 1
+    while [[ `cat /minecraft/data/logs/latest.log | grep '\[dynmap\] Enabled'` == "" ]]; do
+      echo "...Waiting more..."
+      sleep 10
     done
 
+    echo "Stopping Minecraft server..."
     # Stoping minecraft server
     tmux send-keys -t minecraft "stop" C-m
 
-    sleep 10
+    sleep 60
 
+    echo "Upgrade Dynmap config..."
     cat /minecraft/bin/dynmap_config.txt | sed \
-        -e 's:__MOTD__:$MOTD:g' \
-        -e 's:__DYNMAP_PORT__:$DYNMAP_PORT:g' \
+        -e "s:__MOTD__:${MOTD}:g" \
+        -e "s:__DYNMAP_PORT__:${DYNMAP_PORT}:g" \
         > /minecraft/data/plugins/dynmap/configuration.txt
 
+    echo "Restarting Minecraft server..."
+
     # Launching minecraft server
-    tmux send-keys -t minecraft "java -jar /minecraft/bin/$1.jar nogui" C-m
+    tmux send-keys -t minecraft "java -jar /minecraft/bin/${binary}.jar nogui" C-m
 
   fi
 }
 
 # First launch
-if [ ! -f /minecraft/data/eula.txt ]; then
+if [[ ! -f /minecraft/data/eula.txt ]]; then
 
   # Copy plugins
   mkdir /minecraft/data/plugins
@@ -72,7 +82,7 @@ if [ ! -f /minecraft/data/eula.txt ]; then
   FIRST_LAUNCH=1
 
   # Check Minecraft license
-  if [ "$EULA" != "" ]; then
+  if [[ "$EULA" != "" ]]; then
     echo "# Generated via Docker on $(date)" > /minecraft/data/eula.txt
     echo "eula=$EULA" >> /minecraft/data/eula.txt
   else
@@ -90,20 +100,21 @@ else
 fi
 
 # Check server configuration
-[ ! -f /minecraft/data/server.properties ] || [ "${FORCE_CONFIG}" = "true" ] && python /minecraft/bin/configure.py config
+[[ ! -f /minecraft/data/server.properties ]] || [[ "${FORCE_CONFIG}" = "true" ]] && python /minecraft/bin/configure.py --config
 
 # Minecraft server session creation
 tmux new -s minecraft -c /minecraft/data -d
 
 # Launching minecraft server
-tmux send-keys -t minecraft "java -jar /minecraft/bin/$1.jar nogui" C-m
+tmux send-keys -t minecraft "java -jar /minecraft/bin/${binary}.jar nogui" C-m
 
 # Stop server in case of signal INT or TERM
 trap stop INT
 trap stop TERM
 read < /tmp/FIFO &
 
-# init_dynmap
+# Dynmap port configuration
+init_dynmap
 
 echo -e "\n*************************************************"
 echo "* Minecraft server launched. Wait few minutes..."
