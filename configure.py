@@ -3,23 +3,15 @@
 import os
 import sys
 import datetime
+import argparse
 
 
-def usage():
-    print (
-        "Unknown command\nUsage: %s config|alias|command command_to_send" % sys.argv[0]
-    )
-    sys.exit(2)
+minecraft_data = "/minecraft/data"
 
 
 def send_command(input_command=None):
     if input_command is not None:
-        final_command="tmux send-keys -t minecraft '"
-
-        for entry in input_command:
-            final_command = final_command + entry + ' '
-
-        final_command = final_command + "' C-m"
+        final_command = "tmux send-keys -t minecraft '" + input_command + "' C-m"
 
         print (
             "Command [{0}] will be send...".format(final_command)
@@ -31,6 +23,8 @@ def send_command(input_command=None):
 
 
 def config_file():
+
+    global minecraft_data
 
     properties = {
         "generator-settings": os.getenv(
@@ -105,7 +99,7 @@ def config_file():
             "MOTD")
     }
 
-    with open("/minecraft/data/server.properties", 'w') as f:
+    with open(minecraft_data + "/server.properties", 'w') as f:
         now = datetime.datetime.now().isoformat()
 
         f.write("# Minecraft server properties\n")
@@ -123,15 +117,26 @@ def config_file():
 if __name__ == "__main__":
 
     # Check arguments
-    if len(sys.argv) == 2:
-        if 'config' == sys.argv[1]:
-            config_file()
-        else:
-            usage()
-    elif len(sys.argv) > 2:
-        if 'command' == sys.argv[1] and sys.argv[2:] is not None:
-            send_command(sys.argv[2:])
-        else:
-            usage()
+    parser = argparse.ArgumentParser(description='Minecraft configuration tools.')
+
+    parser.add_argument('-c', '--config',
+                        help='creation of server.properties file',
+                        action="store_true")
+    parser.add_argument('-C', '--command',
+                        help='sending command in server command admin')
+    parser.add_argument("-v", "--verbose",
+                        help='active logs',
+                        action="store_true")
+
+    if (
+            parser.parse_args().config is False and
+            parser.parse_args().command is None
+    ):
+        parser.print_help()
     else:
-        usage()
+
+        if parser.parse_args().config:
+            config_file()
+
+        if parser.parse_args().command:
+            send_command(parser.parse_args().command)
