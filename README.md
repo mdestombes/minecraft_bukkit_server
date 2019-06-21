@@ -69,17 +69,17 @@ A full list of `server.properties` settings and their corresponding environment 
 
 To start the server and accept the EULA in one fell swoop, just pass the `EULA=true` environment variable to Docker when running the container.
 
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_server`
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_bukkit_server`
 
 ### Spigot included
 
 Base of container minecraft is `bukkit`, but spigot server should be run too. To run the spigot server, supply it as an argument like so:
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_server spigot`
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_bukkit_server spigot`
 
 ### Configuration
 
 You should be able to pass configuration options as environment variables like so:
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e DIFFICULTY=2 -e MOTD="A specific welcome message" -e SPAWN_ANIMALS=false --name minecraf_server mdestombes/minecraft_server`
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e DIFFICULTY=2 -e MOTD="A specific welcome message" -e SPAWN_ANIMALS=false --name minecraf_server mdestombes/minecraft_bukkit_server`
 
 This container will attempt to generate a `server.properties` file if one does not already exist. If you would like to use the configuration tool, be sure that you are not providing a configuration file or that you also set `FORCE_CONFIG=true` in the environment variables.
 
@@ -93,13 +93,13 @@ level-seed=123456789
 EULA=true
 ```
 
-`docker run -it -p 25565:25565 -p 8123:8123 --env-file env.list --name minecraf_server mdestombes/minecraft_server`
+`docker run -it -p 25565:25565 -p 8123:8123 --env-file env.list --name minecraf_server mdestombes/minecraft_bukkit_server`
 
 ### Saved run of the server
 
 You can bring your own existing data + configuration and mount it to the `/data` directory when starting the container by using the `-v` option.
 
-`docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_server`
+`docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_bukkit_server`
 
 ---
 
