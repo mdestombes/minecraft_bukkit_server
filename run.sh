@@ -36,7 +36,7 @@ function stop {
   exit
 }
 
-# Stop management
+# Init dynmap configuration
 function init_dynmap {
 
   if [[ ${FIRST_LAUNCH} -eq 1 ]]; then
