@@ -3,10 +3,6 @@ FROM openjdk:8-alpine
 # Builder Maintainer
 MAINTAINER mdestombes
 
-# Fixed Environment
-ARG BUKKIT_VERSION=1.13.2
-ARG DYNMAP_VERSION=2645929
-
 # Configuration variables
 ENV SERVER_PORT=25565
 ENV DYNMAP_PORT=8123
@@ -21,21 +17,21 @@ RUN apk update &&\
         bash \
         python
 
-# Download last Buildtool version
+# Download last version
+# From 'https://getbukkit.org'
 WORKDIR /minecraft/downloads
-RUN wget -O /minecraft/downloads/BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+RUN wget -O /minecraft/downloads/craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.15.1-R0.1-SNAPSHOT.jar
+RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spigot-1.15.1.jar
 
-# Bukkit version Builder
-RUN java -jar BuildTools.jar --rev $BUKKIT_VERSION  2>&1 /dev/null
-
-# Download plugins
+# Download Dynmap plugin file linked version
+# From 'https://dev.bukkit.org/projects/dynmap/files'
 WORKDIR /minecraft/downloads/plugins
-RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://dev.bukkit.org/projects/dynmap/files/${DYNMAP_VERSION}/download
+RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/2847/197/Dynmap-3.0-beta-9-spigot.jar
 
 # Copy Bukkit, Spigot and Plugins
 WORKDIR /minecraft/bin
-RUN cp /minecraft/downloads/craftbukkit-*.jar /minecraft/bin/craftbukkit.jar
-RUN cp /minecraft/downloads/spigot-*.jar /minecraft/bin/spigot.jar
+RUN cp /minecraft/downloads/craftbukkit.jar /minecraft/bin/craftbukkit.jar
+RUN cp /minecraft/downloads/spigot.jar /minecraft/bin/spigot.jar
 
 # Expose needed port
 EXPOSE ${SERVER_PORT} ${DYNMAP_PORT}

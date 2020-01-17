@@ -7,7 +7,7 @@ Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with 
 This image is borrowed from bbriggs/bukkit functionnalities.
 Thanks for this good base of Dockerfile and existing structure.
 
-This image uses [Bukkit and Spigot](https://hub.spigotmc.org) to manage a Minecraft server.
+This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
 
 ---
 
@@ -130,3 +130,4 @@ You can bring your own existing data + configuration and mount it to the `/data`
 | Tag      | Notes                   |
 |----------|-------------------------|
 | `1.0`    | Initialization          |
+| `2.0`    | Minecraft 1.15.1        |
