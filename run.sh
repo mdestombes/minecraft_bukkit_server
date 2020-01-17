@@ -43,7 +43,7 @@ function init_dynmap {
     echo -e "\n*************************************************"
     echo "* Specific configuration of Minecraft server..."
     echo "*************************************************"
-    echo "Waiting for first intialization..."
+    echo "Waiting for first initialization..."
     sleep 30
 
     while [[ `cat /minecraft/data/logs/latest.log | grep '\[dynmap\] Enabled'` == "" ]]; do

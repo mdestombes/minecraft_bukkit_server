@@ -2,7 +2,7 @@
 
 __*Take care, `Last` version is often in dev. Use stable version with TAG*__
 
-Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with Dynmap module include
+Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with Dynmap module include.
 
 This image is borrowed from bbriggs/bukkit functionnalities.
 Thanks for this good base of Dockerfile and existing structure.
@@ -127,6 +127,6 @@ You can bring your own existing data + configuration and mount it to the `/data`
 
 ## Changelog
 
-| Tag      | Notes               |
-|----------|---------------------|
-| `1.0`    | Initialization      |
+| Tag      | Notes                   |
+|----------|-------------------------|
+| `1.0`    | Initialization          |
