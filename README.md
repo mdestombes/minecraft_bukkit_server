@@ -127,7 +127,12 @@ You can bring your own existing data + configuration and mount it to the `/data`
 
 ## Changelog
 
-| Tag      | Notes                   |
-|----------|-------------------------|
-| `1.0`    | Initialization          |
-| `2.0`    | Minecraft 1.15.1        |
+| Tag      | Notes                                       |
+|----------|---------------------------------------------|
+| `1.0`    | -> Initialization                           |
+|          |                                             |
+| `2.0`    | -> Minecraft 1.15.1                         |
+|          |                                             |
+| `2.1`    | -> Minecraft 1.15.2                         |
+|          | -> Deactivate Spawn visualization on Dynmap |
+|          |                                             |
