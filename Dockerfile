@@ -20,13 +20,13 @@ RUN apk update &&\
 # Download last version
 # From 'https://getbukkit.org'
 WORKDIR /minecraft/downloads
-RUN wget -O /minecraft/downloads/craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.15.2.jar
-RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spigot-1.15.2.jar
+RUN wget -O /minecraft/downloads/craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.16.2.jar
+RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spigot-1.16.2.jar
 
 # Download Dynmap plugin file linked version
 # From 'https://dev.bukkit.org/projects/dynmap/files'
 WORKDIR /minecraft/downloads/plugins
-RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/2866/992/Dynmap-3.0-beta-10-spigot.jar
+RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/3038/213/Dynmap-3.1-beta3a-spigot.jar
 
 # Copy Bukkit, Spigot and Plugins
 WORKDIR /minecraft/bin

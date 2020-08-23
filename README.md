@@ -154,3 +154,5 @@ mdestombes/minecraft_bukkit_server`
 | `2.1`    | -> Minecraft 1.15.2                                   |
 |          | -> Deactivate Spawn visualization on Dynmap           |
 |          |                                                       |
+| `2.2`    | -> Minecraft 1.16.2                                   |
+|          | -> Upgrade Dynmap configuration file                  |
