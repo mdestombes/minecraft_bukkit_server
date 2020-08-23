@@ -2,9 +2,10 @@
 
 __*Take care, `Last` version is often in dev. Use stable version with TAG*__
 
-Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with Dynmap module include.
+Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with
+Dynmap module include.
 
-This image is borrowed from bbriggs/bukkit functionnalities.
+This image is borrowed from bbriggs/bukkit functionalities.
 Thanks for this good base of Dockerfile and existing structure.
 
 This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
@@ -21,7 +22,8 @@ This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
 
 ## Variables
 
-A full list of `server.properties` settings and their corresponding environment variables is included below, along with their defaults:
+A full list of `server.properties` settings and their corresponding environment
+variables is included below, along with their defaults:
 
 | Configuration Option          | Environment Variable          | Default                  |
 | ------------------------------|-------------------------------|--------------------------|
@@ -67,25 +69,37 @@ A full list of `server.properties` settings and their corresponding environment 
 
 ### Basic run of the server
 
-To start the server and accept the EULA in one fell swoop, just pass the `EULA=true` environment variable to Docker when running the container.
+To start the server and accept the EULA in one fell swoop, just pass the
+`EULA=true` environment variable to Docker when running the container.
 
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_bukkit_server`
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server
+mdestombes/minecraft_bukkit_server`
 
 ### Spigot included
 
-Base of container minecraft is `bukkit`, but spigot server should be run too. To run the spigot server, supply it as an argument like so:
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_bukkit_server spigot`
+Base of container minecraft is `bukkit`, but spigot server should be run too.
+To run the spigot server, supply it as an argument like so:
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server
+mdestombes/minecraft_bukkit_server spigot`
 
 ### Configuration
 
-You should be able to pass configuration options as environment variables like so:
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e DIFFICULTY=2 -e MOTD="A specific welcome message" -e SPAWN_ANIMALS=false --name minecraf_server mdestombes/minecraft_bukkit_server`
+You should be able to pass configuration options as environment variables like
+so:
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e DIFFICULTY=2 -e
+MOTD="A specific welcome message" -e SPAWN_ANIMALS=false --name minecraf_server
+mdestombes/minecraft_bukkit_server`
 
-This container will attempt to generate a `server.properties` file if one does not already exist. If you would like to use the configuration tool, be sure that you are not providing a configuration file or that you also set `FORCE_CONFIG=true` in the environment variables.
+This container will attempt to generate a `server.properties` file if one does
+not already exist. If you would like to use the configuration tool, be sure that
+you are not providing a configuration file or that you also set
+`FORCE_CONFIG=true` in the environment variables.
 
 ### Environment Files
 
-Because of the potentially large number of environment variables that you could pass in, you might want to consider using an `environment variable file`. Example:
+Because of the potentially large number of environment variables that you could
+pass in, you might want to consider using an `environment variable file`.
+Example:
 ```
 # env.list
 ALLOW_NETHER=false
@@ -93,13 +107,17 @@ level-seed=123456789
 EULA=true
 ```
 
-`docker run -it -p 25565:25565 -p 8123:8123 --env-file env.list --name minecraf_server mdestombes/minecraft_bukkit_server`
+`docker run -it -p 25565:25565 -p 8123:8123 --env-file env.list --name
+minecraf_server mdestombes/minecraft_bukkit_server`
 
 ### Saved run of the server
 
-You can bring your own existing data + configuration and mount it to the `/data` directory when starting the container by using the `-v` option.
+You can bring your own existing data + configuration and mount it to the `/data`
+directory when starting the container by using the `-v` option.
 
-`docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server mdestombes/minecraft_bukkit_server`
+`docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565 -p
+8123:8123 -e EULA=true --name minecraf_server
+mdestombes/minecraft_bukkit_server`
 
 ---
 
@@ -107,7 +125,7 @@ You can bring your own existing data + configuration and mount it to the `/data`
 
 ---
 
-## Importants point in available volumes
+## Important point in available volumes
 + __/minecraft/data__: Working data directory wich contains:
   + /minecraft/data/logs: Logs directory
   + /minecraft/data/plugin: Plugins directory
@@ -127,12 +145,12 @@ You can bring your own existing data + configuration and mount it to the `/data`
 
 ## Changelog
 
-| Tag      | Notes                                       |
-|----------|---------------------------------------------|
-| `1.0`    | -> Initialization                           |
-|          |                                             |
-| `2.0`    | -> Minecraft 1.15.1                         |
-|          |                                             |
-| `2.1`    | -> Minecraft 1.15.2                         |
-|          | -> Deactivate Spawn visualization on Dynmap |
-|          |                                             |
+| Tag      | Notes                                                 |
+|----------|-------------------------------------------------------|
+| `1.0`    | -> Initialization                                     |
+|          |                                                       |
+| `2.0`    | -> Minecraft 1.15.1                                   |
+|          |                                                       |
+| `2.1`    | -> Minecraft 1.15.2                                   |
+|          | -> Deactivate Spawn visualization on Dynmap           |
+|          |                                                       |
