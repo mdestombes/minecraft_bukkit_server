@@ -123,6 +123,18 @@ mdestombes/minecraft_bukkit_server`
 
 ## Recommended Usage
 
+### Stopping container
+
+To stop the server, more than 20 should be needed. 30 seconds set to internal
+stop running process, to avoid lost data.
+
+/!\ The default timeout of command `stop` from docker command is 10 second.
+
+That's why I highly recommend to use the following parameter to use the `stop`
+command :
+
+`docker stop -t 40 minecraf_server`
+
 ---
 
 ## Important point in available volumes
@@ -156,3 +168,6 @@ mdestombes/minecraft_bukkit_server`
 |          |                                                       |
 | `2.2`    | -> Minecraft 1.16.2                                   |
 |          | -> Upgrade Dynmap configuration file                  |
+|          | -> Up to 80 seconds during initializing reboot server |
+|          | -> Up to 30 seconds during stopping server            |
+|          |                                                       |
