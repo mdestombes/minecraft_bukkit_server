@@ -125,7 +125,7 @@ mdestombes/minecraft_bukkit_server`
 
 ### Stopping container
 
-To stop the server, more than 20 should be needed. 30 seconds set to internal
+To stop the server, more than 40 should be needed. 60 seconds set to internal
 stop running process, to avoid lost data.
 
 /!\ The default timeout of command `stop` from docker command is 10 second.
@@ -133,7 +133,7 @@ stop running process, to avoid lost data.
 That's why I highly recommend to use the following parameter to use the `stop`
 command :
 
-`docker stop -t 40 minecraf_server`
+`docker stop -t 70 minecraf_server`
 
 ---
 
