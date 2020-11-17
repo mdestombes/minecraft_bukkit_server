@@ -27,7 +27,7 @@ function stop {
   echo "* Minecraft server stopping"
   echo "*************************************************"
 
-  sleep 30
+  sleep 60
 
   echo -e "\n*************************************************"
   echo "* Minecraft server stoppped"
@@ -55,7 +55,7 @@ function init_dynmap {
     # Stoping minecraft server
     tmux send-keys -t minecraft "stop" C-m
 
-    sleep 80
+    sleep 90
 
     echo "Upgrade Dynmap config..."
     cat /minecraft/bin/dynmap_config.txt | sed \
