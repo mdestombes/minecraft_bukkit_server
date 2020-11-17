@@ -82,7 +82,7 @@ def config_file():
         "enable-command-block": os.getenv(
             "ENABLE_COMMAND_BLOCK", "false"),
         "gamemode": os.getenv(
-            "GAMEMODE", 0),
+            "GAMEMODE", "survival"),
         "player-idle-timeout": os.getenv(
             "PLAYER_IDLE_TIMEOUT", 0),
         "max-players": os.getenv(
