@@ -20,8 +20,8 @@ RUN apk update &&\
 # Download last version
 # From 'https://getbukkit.org'
 WORKDIR /minecraft/downloads
-RUN wget -O /minecraft/downloads/craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.16.4.jar
-RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar
+RUN wget -O /minecraft/downloads/craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.16.5.jar
+RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spigot-1.16.5.jar
 
 # Download Dynmap plugin file linked version
 # From 'https://dev.bukkit.org/projects/dynmap/files'

@@ -178,3 +178,6 @@ command :
 |          | -> Up to 90 seconds during initializing reboot server |
 |          | -> Up to 60 seconds during stopping server            |
 |          |                                                       |
+|          |                                                       |
+| `2.3`    | -> Minecraft 1.16.5                                   |
+|          |                                                       |
