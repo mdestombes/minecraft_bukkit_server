@@ -180,4 +180,5 @@ command :
 |          |                                                       |
 |          |                                                       |
 | `2.3`    | -> Minecraft 1.16.5                                   |
+|          | -> Dynmap plugin 3.1                                  |
 |          |                                                       |
