@@ -26,7 +26,7 @@ RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spi
 # Download Dynmap plugin file linked version
 # From 'https://dev.bukkit.org/projects/dynmap/files'
 WORKDIR /minecraft/downloads/plugins
-RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/3106/502/Dynmap-3.1-beta5-spigot.jar
+RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/3242/277/Dynmap-3.1-spigot.jar
 
 # Copy Bukkit, Spigot and Plugins
 WORKDIR /minecraft/bin
