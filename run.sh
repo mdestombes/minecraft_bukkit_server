@@ -82,9 +82,9 @@ if [[ ! -f /minecraft/data/eula.txt ]]; then
   FIRST_LAUNCH=1
 
   # Check Minecraft license
-  if [[ "$EULA" != "" ]]; then
+  if [[ "${EULA}" != "" ]]; then
     echo "# Generated via Docker on $(date)" > /minecraft/data/eula.txt
-    echo "eula=$EULA" >> /minecraft/data/eula.txt
+    echo "eula=${EULA}" >> /minecraft/data/eula.txt
   else
     echo ""
     echo "Please accept the Minecraft EULA at"
