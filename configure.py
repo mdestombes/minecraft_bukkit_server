@@ -86,7 +86,7 @@ def config_file():
         "player-idle-timeout": os.getenv(
             "PLAYER_IDLE_TIMEOUT", 0),
         "max-players": os.getenv(
-            "MAX_PLAYERS", 20),
+            "MAX_PLAYERS", 30),
         "max-tick-time": os.getenv(
             "MAX_TICK_TIME", 60000),
         "spawn-monsters": os.getenv(
@@ -96,7 +96,39 @@ def config_file():
         "generate-structures": os.getenv(
             "GENERATE_STRUCTURES", "true"),
         "motd": os.getenv(
-            "MOTD")
+            "MOTD"),
+        "spawn-protection": os.getenv(
+            "SPAWN_PROTECTION", "30"),
+        "query.port": os.getenv(
+            "SERVER_PORT", 25565),
+        "sync-chunk-writes": os.getenv(
+            "SYNC_CHUNK", True),
+        "enforce-whitelist": os.getenv(
+            "FORCE_WHITELIST", False),
+        "broadcast-console-to-ops": os.getenv(
+            "BROADCAST_OPS", True),
+        "broadcast-rcon-to-ops": os.getenv(
+            "BROADCAST_OPS", True),
+        "text-filtering-config": os.getenv(
+            "TEXT_FILTERING"),
+        "entity-broadcast-range-percentage": os.getenv(
+            "BROADCAST_ENTITY", 100),
+        "enable-status": os.getenv(
+            "ENABLE_STATUS", True),
+        "function-permission-level": os.getenv(
+            "FUNC_PERMISSION_LEVEL", 2),
+        "rcon.port": os.getenv(
+            "RCON_PORT", 25575),
+        "rcon.password": os.getenv(
+            "RCON_PASSWORD"),
+        "debug": os.getenv(
+            "ENABLE_DEBUG", False),
+        "use-native-transport": os.getenv(
+            "NATIVE_TRANSP", True),
+        "enable-jmx-monitoring": os.getenv(
+            "ENABLE_JMX", False),
+        "rate-limit": os.getenv(
+            "RATE_LIMIT", 0)
     }
 
     with open(minecraft_data + "/server.properties", 'w') as f:
@@ -107,11 +139,11 @@ def config_file():
 
         for k, v in properties.items():
             if not v:
-                f.write('{}:\n'.format(k))
+                f.write('{}=\n'.format(k))
             elif isinstance(v, (int)):
-                f.write('{}: {}\n'.format(k, v))
+                f.write('{}={}\n'.format(k, v))
             else:
-                f.write('{}: {}\n'.format(k, v))
+                f.write('{}={}\n'.format(k, v))
 
 
 if __name__ == "__main__":
