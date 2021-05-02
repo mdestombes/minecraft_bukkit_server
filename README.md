@@ -16,6 +16,7 @@ This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
  - Easy install
  - Easy port configuration
  - Easy access to Minecraft config file
+ - Integrated Dynmap plugin with auto basic configuration
  - `Docker stop` is a clean stop
 
 ---
