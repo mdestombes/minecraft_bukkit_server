@@ -17,6 +17,7 @@ This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
  - Easy port configuration
  - Easy access to Minecraft config file
  - Integrated Dynmap plugin with auto basic configuration
+ - Integrated DiscordSRV plugin with auto basic configuration
  - `Docker stop` is a clean stop
 
 ---
@@ -76,6 +77,16 @@ variables is included below, along with their defaults:
 | Dynmap webpage port           | DYNMAP_PORT                   | `8123`                   |
 | Title webpage                 | MOTD                          | `"Welcome to Minecraft"` |
 
+### DiscordSRV properties
+
+A full list of `DiscordSRV` plugin base configuration, and their corresponding environment
+variables is included below, along with their defaults:
+
+| Configuration Option          | Environment Variable          | Default                  |
+| ------------------------------|-------------------------------|--------------------------|
+| The Bot Discord Token         | DISCORD_BOT_TOKEN             | `BOTTOKEN`               |
+| The discord linked channels   | DISCORD_CHANNEL               | `000000000000000000`     |
+
 ---
 
 ## Usage
@@ -131,6 +142,86 @@ directory when starting the container by using the `-v` option.
 `docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565 -p
 8123:8123 -e EULA=true --name minecraf_server
 mdestombes/minecraft_bukkit_server`
+
+---
+
+## Discord Usage
+
+Basically, DiscordSRV plugin is integrated to this container, but not configured.
+So the plugin will automatically be deactivated. Don't worry...
+
+To link your new Minecraft server, with a Discord Server, you need to:
+- Have a Discord Server
+- Create a Discord app/bot
+- Add the link to DiscordSRV with input DiscordSRV environment variable
+  properties
+- Configure your Discord Server (With admin/powered role)
+
+Don't be afraid, the procedure has followings...
+
+### Create a Discord app/bot
+
+- Step 1 => Go to site [Discord Developers](https://discord.com/developers/applications/).
+- Step 2 => Create a __New application__
+  Take care with the name, it is linked to the final name displayed on Discord.
+  You can change it, but not too frequently!
+- Step 3 => Create it
+- Step 4 => Personalize it with `General Information` tab,
+  like Name and Description.
+- Step 5 => From `Bot` tab
+  - Link a new bot with __Add bot__
+    You need to confirm your creation with __Yes, do it!__
+  - Change the __USERNAME__ field the final name.
+    Take care with the name, it is linked to the final name displayed on Discord.
+    You can change it, but not too frequently!
+  - (Optional) You can change the image of your bot
+    with yours.
+  - Keep the token from the field __TOKEN__, it is used lower as [the_bot_token].
+  - Saved the modification.
+- Step 7 => From `General Information` tab, copy to clipboard the __CLIENT ID__
+- Step 8 => Got to sit [Autorized](https://scarsz.me/authorize) and paste your
+  __CLIENT ID__ from your clipboard.
+  > The linked site have a script script in background who catch 
+  > and verify the `CLIENT ID` and send it to discordapp.com.
+  > I  orer to obtain the OAuth2 authentication for the bot.
+  > You can manually add the `CLIENT ID` at the end of the following link:
+  > https://discordapp.com/oauth2/authorize?scope=bot&client_id=
+- Step 9 => Select you Discord target and __Autorize__
+  The bot will appear as a new member on your Discord server.
+
+### Discord server configuration
+
+- Step 1 => Go to your Discord application.
+- Step 2 => Open the users parameters (The gear at the bottom-left of Discord app).
+  - Go to _Advanced application parameters_ tab
+  - Activate __Developer Mode__
+  - Saved the modification.
+- Step 3 => With a right click on the target Discord channel, you can get
+  the __CHANNEL_ID__, keep it, it is used lower as [the_discord_channel].
+- Step 4 => Open the Discord __Server settings__ (The gear available into
+  sub-menu from the Server name at the top-left).
+  - Go to _Role_ tab.
+    - Create a new role as `Bot`.
+    - Add the authorization _Administrator_ to this new role.
+      Keep it mind this role need to be the first of the role list.
+      Otherwise the role sync feature probably won't work...
+  - Go to _Member_ tab.
+    - Add the `Bot` role to the new member (The Bot obviously)
+
+### DiscordSRV plugin configuration
+
+The DiscordSRV configuration is made with the input environment variable
+mentioned upper. So... Your lonmy need is to put them at the initialization
+of your container as:
+`docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565
+-p 8123:8123 -e EULA=true -e DISCORD_BOT_TOKEN=[the_bot_token]
+-e DISCORD_CHANNEL=[the_discord_channel] --name minecraf_server
+mdestombes/minecraft_bukkit_server`
+
+To fill [the_bot_token] use the __TOKEN__ of the bot created previously.
+
+To fill [the_discord_channel] use the __CHANNEL_IDD__ of the previously selected
+Discord channel.
 
 ---
 
@@ -201,4 +292,7 @@ command :
 |          | -> Adding DiscordSRV dedicated configuration files    |
 |          | -> Update plugins initialization post first run       |
 |          | -> Update README documentation for input available    |
+|          | -> Adding documentation to link your both Servers:    |
+|          |    - Discord                                          |
+|          |    - Minecraft                                        |
 |          |                                                       |
