@@ -42,6 +42,8 @@ EXPOSE ${SERVER_PORT} ${DYNMAP_PORT}
 # Copy runner
 COPY run.sh /minecraft/bin/run.sh
 COPY configure.py /minecraft/bin/configure.py
+COPY discordsrv_config.yml /minecraft/bin/discordsrv_config.yml
+COPY discordsrv_messages.yml /minecraft/bin/discordsrv_messages.yml
 COPY dynmap_config.txt /minecraft/bin/dynmap_config.txt
 RUN chmod +x /minecraft/bin/run.sh
 
