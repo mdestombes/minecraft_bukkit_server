@@ -147,6 +147,9 @@ mdestombes/minecraft_bukkit_server`
 
 ## Discord Usage
 
+This part is base on the French tutorial as:
+[mTxServer](https://mtxserv.com/fr/article/12247/discordsrv_liez_discord_a_votre_serveur_minecraft)
+
 Basically, DiscordSRV plugin is integrated to this container, but not configured.
 So the plugin will automatically be deactivated. Don't worry...
 
