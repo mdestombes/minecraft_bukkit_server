@@ -27,6 +27,7 @@ RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spi
 # From 'https://dev.bukkit.org/projects/dynmap/files'
 WORKDIR /minecraft/downloads/plugins
 RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/3242/277/Dynmap-3.1-spigot.jar
+RUN wget -O /minecraft/downloads/plugins/discorsrv.jar https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.22.0/DiscordSRV-Build-1.22.0.jar
 
 # Copy Bukkit, Spigot and Plugins
 WORKDIR /minecraft/bin

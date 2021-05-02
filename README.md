@@ -178,9 +178,10 @@ command :
 |          | -> Up to 90 seconds during initializing reboot server |
 |          | -> Up to 60 seconds during stopping server            |
 |          |                                                       |
-|          |                                                       |
 | `2.4`    | -> Minecraft 1.16.5                                   |
 |          | -> Dynmap plugin 3.1                                  |
 |          | -> Upgrade Dynmap configuration file                  |
 |          | -> Global upgrade server.properties generation        |
+|          |                                                       |
+| `2.5`    | -> Adding DiscordSRV plugin 1.22.0                    |
 |          |                                                       |
