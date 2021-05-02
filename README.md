@@ -184,4 +184,5 @@ command :
 |          | -> Global upgrade server.properties generation        |
 |          |                                                       |
 | `2.5`    | -> Adding DiscordSRV plugin 1.22.0                    |
+|          | -> Adding Environment input variables for DiscordSRV  |
 |          |                                                       |
