@@ -177,6 +177,8 @@ Don't be afraid, the procedure has followings...
   - (Optional) You can change the image of your bot
     with yours.
   - Keep the token from the field __TOKEN__, it is used lower as [the_bot_token].
+  - Activate option __SERVER MEMBERS INTENT__
+    Otherwise the bot member sync feature probably won't work...
   - Saved the modification.
 - Step 7 => From `General Information` tab, copy to clipboard the __CLIENT ID__
 - Step 8 => Got to sit [Autorized](https://scarsz.me/authorize) and paste your
