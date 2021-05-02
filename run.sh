@@ -36,8 +36,8 @@ function stop {
   exit
 }
 
-# Init dynmap configuration
-function init_dynmap {
+# Init Dynmap and DiscordSRV configuration
+function init_plugins {
 
   if [[ ${FIRST_LAUNCH} -eq 1 ]]; then
     echo -e "\n*************************************************"
@@ -46,13 +46,13 @@ function init_dynmap {
     echo "Waiting for first initialization..."
     sleep 30
 
-    while [[ `cat /minecraft/data/logs/latest.log | grep '\[dynmap\] Enabled'` == "" ]]; do
+    while [[ `cat /minecraft/data/logs/latest.log | grep '\[DiscordSRV\] Shutdown completed'` == "" ]]; do
       echo "...Waiting more..."
       sleep 10
     done
 
     echo "Stopping Minecraft server..."
-    # Stoping minecraft server
+    # Stopping minecraft server
     tmux send-keys -t minecraft "stop" C-m
 
     sleep 90
@@ -62,6 +62,14 @@ function init_dynmap {
         -e "s:__MOTD__:${MOTD}:g" \
         -e "s:__DYNMAP_PORT__:${DYNMAP_PORT}:g" \
         > /minecraft/data/plugins/dynmap/configuration.txt
+
+    echo "Upgrade DiscordSRV config..."
+    cat /minecraft/bin/discordsrv_config.yml | sed \
+        -e "s:__DISCORD_BOT_TOKEN__:${DISCORD_BOT_TOKEN}:g" \
+        -e "s:__DISCORD_CHANNEL__:${DISCORD_CHANNEL}:g" \
+        > /minecraft/data/plugins/DiscordSRV/config.yml
+    cat /minecraft/bin/discordsrv_messages.yml \
+        > /minecraft/data/plugins/DiscordSRV/messages.yml
 
     echo "Restarting Minecraft server..."
 
@@ -113,8 +121,10 @@ trap stop INT
 trap stop TERM
 read < /tmp/FIFO &
 
-# Dynmap port configuration
-init_dynmap
+# Plugins post first run configuration as:
+# - Dynmap port
+# - DiscordSRV server
+init_plugins
 
 echo -e "\n*************************************************"
 echo "* Minecraft server launched. Wait few minutes..."
