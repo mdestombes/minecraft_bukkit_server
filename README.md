@@ -20,7 +20,9 @@ This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
 
 ---
 
-## Variables
+## Input environment variables
+
+### Server properties
 
 A full list of `server.properties` settings and their corresponding environment
 variables is included below, along with their defaults:
@@ -62,6 +64,16 @@ variables is included below, along with their defaults:
 | spawn-npcs                    | SPAWN_NPCS                    | `true`                   |
 | view-distance                 | VIEW_DISTANCE                 | `10`                     |
 | white-list                    | WHITE_LIST                    | `false`                  |
+
+### Dynmap properties
+
+A full list of `Dynmap` plugin base configuration, and their corresponding environment
+variables is included below, along with their defaults:
+
+| Configuration Option          | Environment Variable          | Default                  |
+| ------------------------------|-------------------------------|--------------------------|
+| Dynmap webpage port           | DYNMAP_PORT                   | `8123`                   |
+| Title webpage                 | MOTD                          | `"Welcome to Minecraft"` |
 
 ---
 
@@ -187,4 +199,5 @@ command :
 |          | -> Adding Environment input variables for DiscordSRV  |
 |          | -> Adding DiscordSRV dedicated configuration files    |
 |          | -> Update plugins initialization post first run       |
+|          | -> Update README documentation for input available    |
 |          |                                                       |
