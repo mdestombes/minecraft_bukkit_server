@@ -311,3 +311,6 @@ command :
 |          |    - Discord                                          |
 |          |    - Minecraft                                        |
 |          |                                                       |
+| `2.6`    | -> Adding management for Auto-Restart                 |
+|          |    at first initialization                            |
+|          |                                                       |
