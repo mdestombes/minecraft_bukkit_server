@@ -24,6 +24,16 @@ This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
 
 ## Input environment variables
 
+### Main properties
+
+A full list of `basic` settings and their corresponding environment
+variables is included below, along with their defaults:
+
+| Configuration Option          | Environment Variable          | Default                  |
+| ------------------------------|-------------------------------|--------------------------|
+| Auto restart after init       | AUTO_RESTART                  | `true`                   |
+| Force configuration at start  | FORCE_CONFIG                  | `false`                  |
+
 ### Server properties
 
 A full list of `server.properties` settings and their corresponding environment

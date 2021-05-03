@@ -4,6 +4,8 @@ FROM openjdk:8-alpine
 MAINTAINER mdestombes
 
 # Configuration variables
+ENV AUTO_RESTART=true
+ENV FORCE_CONFIG=false
 ENV SERVER_PORT=25565
 ENV DYNMAP_PORT=8123
 ENV MOTD="Welcome to Minecraft"

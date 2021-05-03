@@ -71,10 +71,13 @@ function init_plugins {
     cat /minecraft/bin/discordsrv_messages.yml \
         > /minecraft/data/plugins/DiscordSRV/messages.yml
 
-    echo "Restarting Minecraft server..."
+    if [[ "${AUTO_RESTART}" = "true" ]]; then
+      echo "Restarting Minecraft server..."
 
-    # Launching minecraft server
-    tmux send-keys -t minecraft "java -jar /minecraft/bin/${binary}.jar nogui" C-m
+      # Launching minecraft server
+      tmux send-keys -t minecraft "java -jar /minecraft/bin/${binary}.jar nogui" C-m
+
+    fi
 
   fi
 }
@@ -126,7 +129,10 @@ read < /tmp/FIFO &
 # - DiscordSRV server
 init_plugins
 
-echo -e "\n*************************************************"
-echo "* Minecraft server launched. Wait few minutes..."
-echo "*************************************************"
-wait
+# Auto restart for first run
+if [[ "${AUTO_RESTART}" = "true" ]] || [[ ${FIRST_LAUNCH} -eq 0 ]]; then
+  echo -e "\n*************************************************"
+  echo "* Minecraft server launched. Wait few minutes..."
+  echo "*************************************************"
+  wait
+fi
