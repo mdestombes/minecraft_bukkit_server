@@ -3,10 +3,11 @@
 __*Take care, `Last` version is often in dev. Use stable version with TAG*__
 
 Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with
-Dynmap module include.
+ Dynmap, DiscordSRV and DeathBan module include.
 
-This image is borrowed from bbriggs/bukkit functionalities.
-Thanks for this good base of Dockerfile and existing structure.
+The first version (v1.0) of image is borrowed from bbriggs/bukkit
+ functionalities. Thanks for this good base of Dockerfile and existing
+ structure.
 
 This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
 
@@ -315,4 +316,5 @@ command :
 |          |                                                               |
 | `2.7`    | -> Correction of default value for server.properties          |
 |          | -> Correction of base config Dynmap file                      |
+|          | -> Adding plugin DeathBan 1.1.1                               |
 |          |                                                               |
