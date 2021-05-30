@@ -36,7 +36,7 @@ function stop {
   exit
 }
 
-# Init Dynmap and DiscordSRV configuration
+# Init Dynmap, DiscordSRV and DeathBan configuration
 function init_plugins {
 
   if [[ ${FIRST_LAUNCH} -eq 1 ]]; then
@@ -71,6 +71,15 @@ function init_plugins {
     cat /minecraft/bin/discordsrv_messages.yml \
         > /minecraft/data/plugins/DiscordSRV/messages.yml
 
+    # If Hardcore mode active
+    if [[ "${HARDCORE}" == "true" ]]; then
+      echo "Upgrade DeathBan config..."
+      cat /minecraft/bin/deathban_config.yml | sed \
+          -e "s:__DEATH_AVAILABLE__:${DEATH_AVAILABLE}:g" \
+          > /minecraft/data/plugins/DeathBan/config.yml
+
+    fi
+
     if [[ "${AUTO_RESTART}" = "true" ]]; then
       echo "Restarting Minecraft server..."
 
@@ -88,6 +97,12 @@ if [[ ! -f /minecraft/data/eula.txt ]]; then
   # Copy plugins
   mkdir /minecraft/data/plugins
   cp -f /minecraft/downloads/plugins/*.jar /minecraft/data/plugins
+
+  # Copy plugins if selected mod active
+  if [[ "${HARDCORE}" == "true" ]]; then
+    cp -f /minecraft/downloads/plugins/hardcore/*.jar /minecraft/data/plugins
+
+  fi
 
   # Init plugins needed
   FIRST_LAUNCH=1

@@ -9,6 +9,7 @@ ENV FORCE_CONFIG=false
 ENV SERVER_PORT=25565
 ENV DYNMAP_PORT=8123
 ENV MOTD="Welcome to Minecraft"
+ENV DEATH_AVAILABLE=3
 ENV DISCORD_BOT_TOKEN="BOTTOKEN"
 ENV DISCORD_CHANNEL="000000000000000000"
 
@@ -41,9 +42,15 @@ RUN cp /minecraft/downloads/spigot.jar /minecraft/bin/spigot.jar
 # Expose needed port
 EXPOSE ${SERVER_PORT} ${DYNMAP_PORT}
 
+# Copy plugins
+# Manualy downloaded from https://www.spigotmc.org (WGET Blocked)
+# https://www.spigotmc.org/resources/deathban.64283/ (v1.1.1)
+COPY plugins/deathban.jar /minecraft/downloads/plugins/hardcore/
+
 # Copy runner
 COPY run.sh /minecraft/bin/run.sh
 COPY configure.py /minecraft/bin/configure.py
+COPY deathban_config.yml /minecraft/bin/deathban_config.yml
 COPY discordsrv_config.yml /minecraft/bin/discordsrv_config.yml
 COPY discordsrv_messages.yml /minecraft/bin/discordsrv_messages.yml
 COPY dynmap_config.txt /minecraft/bin/dynmap_config.txt

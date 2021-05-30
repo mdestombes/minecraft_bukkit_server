@@ -65,8 +65,7 @@ def config_file():
             "WHITE_LIST", "false"),
         "spawn-animals": os.getenv(
             "SPAWN_ANIMALS", "true"),
-        "hardcore": os.getenv(
-            "HARDCORE", "false"),
+        "hardcore": "false",
         "snooper-enabled": os.getenv(
             "SNOOPER_ENABLED", "true"),
         "resource-pack-sha1": os.getenv(

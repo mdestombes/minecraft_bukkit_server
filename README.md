@@ -3,7 +3,7 @@
 __*Take care, `Last` version is often in dev. Use stable version with TAG*__
 
 Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with
- Dynmap, DiscordSRV and DeathBan module include.
+ Dynmap, DiscordSRV and DeathBan (For Hardcore mode) module include.
 
 The first version (v1.0) of image is borrowed from bbriggs/bukkit
  functionalities. Thanks for this good base of Dockerfile and existing
@@ -19,6 +19,7 @@ This image uses [GetBukkit](https://getbukkit.org) to manage a Minecraft server.
  - Easy access to Minecraft config file
  - Integrated Dynmap plugin with auto basic configuration
  - Integrated DiscordSRV plugin with auto basic configuration
+ - Integrated DeathBan plugin with auto activation if Hardcore mode selected
  - `Docker stop` is a clean stop
 
 ---
@@ -52,7 +53,7 @@ variables is included below, along with their defaults:
 | gamemode                      | GAMEMODE                      | `survival`               |
 | generate-structures           | GENERATE_STRUCTURES           | `true`                   |
 | generator-settings            | GENERATOR_SETTINGS            |                          |
-| hardcore                      | HARDCORE                      | `false`                  |
+| hardcore                      | -                             | `false`                  |
 | level-name                    | LEVEL_NAME                    | `world`                  |
 | level-seed                    | LEVEL_SEED                    |                          |
 | level-type                    | LEVEL_TYPE                    | `DEFAULT`                |
@@ -98,6 +99,20 @@ variables is included below, along with their defaults:
 | The Bot Discord Token         | DISCORD_BOT_TOKEN             | `BOTTOKEN`               |
 | The discord linked channels   | DISCORD_CHANNEL               | `000000000000000000`     |
 
+### DeathBan properties
+
+The DeathBan plugin is activated only if at start you activate the Hardcore mode.
+
+A full list of `DeathBan` plugin base configuration, and their corresponding environment
+variables is included below, along with their defaults:
+
+| Configuration Option          | Environment Variable          | Default                  |
+| ------------------------------|-------------------------------|--------------------------|
+| Max lives into the game       | DEATH_AVAILABLE               | `3`                      |
+
+To get more information about his configuration, go to documentation available
+ at [Spigot Plugin page](https://www.spigotmc.org/resources/deathban.64283/).
+
 ---
 
 ## Usage
@@ -129,6 +144,19 @@ This container will attempt to generate a `server.properties` file if one does
 not already exist. If you would like to use the configuration tool, be sure that
 you are not providing a configuration file or that you also set
 `FORCE_CONFIG=true` in the environment variables.
+
+### Hardcore mode
+
+Basically, Hardcore mode is not really operational on Bukkit/Spigot minecraft
+ server. That's why the DeathBan plugin have been added. This plugin is
+ activated only if at start you activate the Hardcore mode.
+
+To activate Hardcore mode, use the __HARDCORE__ environment variable set to
+`true` as:
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e HARDCORE=true 
+-e DIFFICULTY=normal -e MOTD="A specific welcome message" 
+-e SPAWN_ANIMALS=false --name minecraf_server 
+mdestombes/minecraft_bukkit_server`
 
 ### Environment Files
 
@@ -317,4 +345,5 @@ command :
 | `2.7`    | -> Correction of default value for server.properties          |
 |          | -> Correction of base config Dynmap file                      |
 |          | -> Adding plugin DeathBan 1.1.1                               |
+|          | -> Activation plugin DeathBan when Hardcore mode selected     |
 |          |                                                               |
