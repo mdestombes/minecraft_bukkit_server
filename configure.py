@@ -78,7 +78,7 @@ def config_file():
         "pvp": os.getenv(
             "PVP", "true"),
         "difficulty": os.getenv(
-            "DIFFICULTY", 1),
+            "DIFFICULTY", "easy"),
         "enable-command-block": os.getenv(
             "ENABLE_COMMAND_BLOCK", "false"),
         "gamemode": os.getenv(
@@ -98,23 +98,23 @@ def config_file():
         "motd": os.getenv(
             "MOTD"),
         "spawn-protection": os.getenv(
-            "SPAWN_PROTECTION", "30"),
+            "SPAWN_PROTECTION", 30),
         "query.port": os.getenv(
             "SERVER_PORT", 25565),
         "sync-chunk-writes": os.getenv(
             "SYNC_CHUNK", True),
         "enforce-whitelist": os.getenv(
-            "FORCE_WHITELIST", False),
+            "FORCE_WHITELIST", "false"),
         "broadcast-console-to-ops": os.getenv(
-            "BROADCAST_OPS", True),
+            "BROADCAST_OPS", "true"),
         "broadcast-rcon-to-ops": os.getenv(
-            "BROADCAST_OPS", True),
+            "BROADCAST_OPS", "true"),
         "text-filtering-config": os.getenv(
             "TEXT_FILTERING"),
         "entity-broadcast-range-percentage": os.getenv(
             "BROADCAST_ENTITY", 100),
         "enable-status": os.getenv(
-            "ENABLE_STATUS", True),
+            "ENABLE_STATUS", "true"),
         "function-permission-level": os.getenv(
             "FUNC_PERMISSION_LEVEL", 2),
         "rcon.port": os.getenv(
@@ -122,11 +122,11 @@ def config_file():
         "rcon.password": os.getenv(
             "RCON_PASSWORD"),
         "debug": os.getenv(
-            "ENABLE_DEBUG", False),
+            "ENABLE_DEBUG", "false"),
         "use-native-transport": os.getenv(
-            "NATIVE_TRANSP", True),
+            "NATIVE_TRANSP", "true"),
         "enable-jmx-monitoring": os.getenv(
-            "ENABLE_JMX", False),
+            "ENABLE_JMX", "false"),
         "rate-limit": os.getenv(
             "RATE_LIMIT", 0)
     }

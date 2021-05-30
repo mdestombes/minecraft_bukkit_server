@@ -43,12 +43,12 @@ variables is included below, along with their defaults:
 | ------------------------------|-------------------------------|--------------------------|
 | allow-flight                  | ALLOW_FLIGHT                  | `false`                  |
 | allow-nether                  | ALLOW_NETHER                  | `true`                   |
-| difficulty                    | DIFFICULTY                    | `1`                      |
+| difficulty                    | DIFFICULTY                    | `easy`                   |
 | enable-command-block          | ENABLE_COMMAND_BLOCK          | `false`                  |
 | enable-query                  | ENABLE_QUERY                  | `false`                  |
 | enable-rcon                   | ENABLE_RCON                   | `false`                  |
 | force-gamemode                | FORCE_GAMEMODE                | `false`                  |
-| gamemode                      | GAMEMODE                      | `0`                      |
+| gamemode                      | GAMEMODE                      | `survival`               |
 | generate-structures           | GENERATE_STRUCTURES           | `true`                   |
 | generator-settings            | GENERATOR_SETTINGS            |                          |
 | hardcore                      | HARDCORE                      | `false`                  |
@@ -120,7 +120,7 @@ mdestombes/minecraft_bukkit_server spigot`
 
 You should be able to pass configuration options as environment variables like
 so:
-`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e DIFFICULTY=2 -e
+`docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true -e DIFFICULTY=normal -e
 MOTD="A specific welcome message" -e SPAWN_ANIMALS=false --name minecraf_server
 mdestombes/minecraft_bukkit_server`
 
@@ -276,41 +276,42 @@ command :
 
 ## Changelog
 
-| Tag      | Notes                                                 |
-|----------|-------------------------------------------------------|
-| `1.0`    | -> Initialization                                     |
-|          |                                                       |
-| `2.0`    | -> Minecraft 1.15.1                                   |
-|          |                                                       |
-| `2.1`    | -> Minecraft 1.15.2                                   |
-|          | -> Deactivate Spawn visualization on Dynmap           |
-|          |                                                       |
-| `2.2`    | -> Minecraft 1.16.2                                   |
-|          | -> Upgrade Dynmap configuration file                  |
-|          | -> Up to 80 seconds during initializing reboot server |
-|          | -> Up to 30 seconds during stopping server            |
-|          |                                                       |
-| `2.3`    | -> Minecraft 1.16.4                                   |
-|          | -> Dynmap plugin 3.1-beta5                            |
-|          | -> Upgrade Dynmap configuration file                  |
-|          | -> Upgrade server.properties generation (gamemode)    |
-|          | -> Up to 90 seconds during initializing reboot server |
-|          | -> Up to 60 seconds during stopping server            |
-|          |                                                       |
-| `2.4`    | -> Minecraft 1.16.5                                   |
-|          | -> Dynmap plugin 3.1                                  |
-|          | -> Upgrade Dynmap configuration file                  |
-|          | -> Global upgrade server.properties generation        |
-|          |                                                       |
-| `2.5`    | -> Adding DiscordSRV plugin 1.22.0                    |
-|          | -> Adding Environment input variables for DiscordSRV  |
-|          | -> Adding DiscordSRV dedicated configuration files    |
-|          | -> Update plugins initialization post first run       |
-|          | -> Update README documentation for input available    |
-|          | -> Adding documentation to link your both Servers:    |
-|          |    - Discord                                          |
-|          |    - Minecraft                                        |
-|          |                                                       |
-| `2.6`    | -> Adding management for Auto-Restart                 |
-|          |    at first initialization                            |
-|          |                                                       |
+| Tag      | Notes                                                         |
+|----------|---------------------------------------------------------------|
+| `1.0`    | -> Initialization                                             |
+|          |                                                               |
+| `2.0`    | -> Minecraft 1.15.1                                           |
+|          |                                                               |
+| `2.1`    | -> Minecraft 1.15.2                                           |
+|          | -> Deactivate Spawn visualization on Dynmap                   |
+|          |                                                               |
+| `2.2`    | -> Minecraft 1.16.2                                           |
+|          | -> Upgrade Dynmap configuration file                          |
+|          | -> Up to 80 seconds during initializing reboot server         |
+|          | -> Up to 30 seconds during stopping server                    |
+|          |                                                               |
+| `2.3`    | -> Minecraft 1.16.4                                           |
+|          | -> Dynmap plugin 3.1-beta5                                    |
+|          | -> Upgrade Dynmap configuration file                          |
+|          | -> Upgrade server.properties generation (gamemode)            |
+|          | -> Up to 90 seconds during initializing reboot server         |
+|          | -> Up to 60 seconds during stopping server                    |
+|          |                                                               |
+| `2.4`    | -> Minecraft 1.16.5                                           |
+|          | -> Dynmap plugin 3.1                                          |
+|          | -> Upgrade Dynmap configuration file                          |
+|          | -> Global upgrade server.properties generation                |
+|          |                                                               |
+| `2.5`    | -> Adding DiscordSRV plugin 1.22.0                            |
+|          | -> Adding Environment input variables for DiscordSRV          |
+|          | -> Adding DiscordSRV dedicated configuration files            |
+|          | -> Update plugins initialization post first run               |
+|          | -> Update README documentation for input available            |
+|          | -> Adding documentation to link your both Servers:            |
+|          |    - Discord                                                  |
+|          |    - Minecraft                                                |
+|          |                                                               |
+| `2.6`    | -> Adding management for Auto-Restart at first initialization |
+|          |                                                               |
+| `2.7`    | -> Correction of default value for server.properties          |
+|          |                                                               |
