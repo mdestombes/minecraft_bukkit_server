@@ -346,4 +346,5 @@ command :
 |          | -> Correction of base config Dynmap file                      |
 |          | -> Adding plugin DeathBan 1.1.1                               |
 |          | -> Activation plugin DeathBan when Hardcore mode selected     |
+|          | -> Sort server.properties in auto config                      |
 |          |                                                               |
