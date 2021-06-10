@@ -350,4 +350,5 @@ command :
 |          |                                                               |
 | `2.8`    | -> Change base from `openjdk:8-alpine` to `openjdk:15-alpine` |
 |          | -> Change Python v2 to Python v3                              |
+|          | -> Adding Java attribute to avoid useless warning at start    |
 |          |                                                               |
