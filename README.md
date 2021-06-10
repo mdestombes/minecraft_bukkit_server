@@ -348,3 +348,5 @@ command :
 |          | -> Activation plugin DeathBan when Hardcore mode selected     |
 |          | -> Sort server.properties in auto config                      |
 |          |                                                               |
+| `2.8`    | -> Change base from `openjdk:8-alpine` to `openjdk:15-alpine` |
+|          |                                                               |
