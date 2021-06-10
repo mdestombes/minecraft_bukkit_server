@@ -20,7 +20,7 @@ RUN apk update &&\
         wget \
         git \
         bash \
-        python
+        python3
 
 # Download last version
 # From 'https://getbukkit.org'

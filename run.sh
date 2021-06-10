@@ -126,7 +126,7 @@ else
 fi
 
 # Check server configuration
-[[ ! -f /minecraft/data/server.properties ]] || [[ "${FORCE_CONFIG}" = "true" ]] && python /minecraft/bin/configure.py --config
+[[ ! -f /minecraft/data/server.properties ]] || [[ "${FORCE_CONFIG}" = "true" ]] && python3 /minecraft/bin/configure.py --config
 
 # Minecraft server session creation
 tmux new -s minecraft -c /minecraft/data -d
