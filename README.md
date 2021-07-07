@@ -354,4 +354,5 @@ command :
 |          |                                                                |
 | `3.0`    | -> Change base from `openjdk:15-alpine` to `openjdk:16-alpine` |
 |          | -> Using Spigot as default instead of CraftBukkit              |
+|          | -> Minecraft 1.17                                              |
 |          |                                                                |
