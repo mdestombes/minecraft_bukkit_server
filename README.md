@@ -2,8 +2,11 @@
 
 __*Take care, `Last` version is often in dev. Use stable version with TAG*__
 
-Docker build for managing a Minecraft Spigot/CraftBukkit server based on Alpine with
- Dynmap, DiscordSRV and DeathBan (For Hardcore mode) module include.
+Docker build for managing a Minecraft Spigot/CraftBukkit server based on Alpine
+ with integrated plugin, configurable at starting as:
+- Dynmap,
+- DiscordSRV,
+- DeathBan (For Hardcore mode).
 
 The first version (v1.0) of image is borrowed from bbriggs/bukkit
  functionalities. Thanks for this good base of Dockerfile and existing
@@ -41,43 +44,62 @@ variables is included below, along with their defaults:
 A full list of `server.properties` settings and their corresponding environment
 variables is included below, along with their defaults:
 
-| Configuration Option          | Environment Variable          | Default                  |
-| ------------------------------|-------------------------------|--------------------------|
-| allow-flight                  | ALLOW_FLIGHT                  | `false`                  |
-| allow-nether                  | ALLOW_NETHER                  | `true`                   |
-| difficulty                    | DIFFICULTY                    | `easy`                   |
-| enable-command-block          | ENABLE_COMMAND_BLOCK          | `false`                  |
-| enable-query                  | ENABLE_QUERY                  | `false`                  |
-| enable-rcon                   | ENABLE_RCON                   | `false`                  |
-| force-gamemode                | FORCE_GAMEMODE                | `false`                  |
-| gamemode                      | GAMEMODE                      | `survival`               |
-| generate-structures           | GENERATE_STRUCTURES           | `true`                   |
-| generator-settings            | GENERATOR_SETTINGS            |                          |
-| hardcore                      | -                             | `false`                  |
-| level-name                    | LEVEL_NAME                    | `world`                  |
-| level-seed                    | LEVEL_SEED                    |                          |
-| level-type                    | LEVEL_TYPE                    | `DEFAULT`                |
-| max-build-height              | MAX_BUILD_HEIGHT              | `256`                    |
-| max-players                   | MAX_PLAYERS                   | `20`                     |
-| max-tick-time                 | MAX_TICK_TIME                 | `60000`                  |
-| max-world-size                | MAX_WORLD_SIZE                | `29999984`               |
-| motd                          | MOTD                          | `"Welcome to Minecraft"` |
-| network-compression-threshold | NETWORK_COMPRESSION_THRESHOLD | `256`                    |
-| online-mode                   | ONLINE_MODE                   | `true`                   |
-| op-permission-level           | OP_PERMISSION_LEVEL           | `4`                      |
-| player-idle-timeout           | PLAYER_IDLE_TIMEOUT           | `0`                      |
-| prevent-proxy-connections     | PREVENT_PROXY_CONNECTIONS     | `false`                  |
-| pvp                           | PVP                           | `true`                   |
-| resource-pack                 | RESOURCE_PACK                 |                          |
-| resource-pack-sha1            | RESOURCE_PACK_SHA1            |                          |
-| server-ip                     | SERVER_IP                     |                          |
-| server-port                   | SERVER_PORT                   | `25565`                  | 
-| snooper-enabled               | SNOOPER_ENABLED               | `true`                   |
-| spawn-animals                 | SPAWN_ANIMALS                 | `true`                   |
-| spawn-monsters                | SPAWN_MONSTERS                | `true`                   |
-| spawn-npcs                    | SPAWN_NPCS                    | `true`                   |
-| view-distance                 | VIEW_DISTANCE                 | `10`                     |
-| white-list                    | WHITE_LIST                    | `false`                  |
+| Configuration Option              | Environment Variable          | Default                  |
+| ----------------------------------|-------------------------------|--------------------------|
+| allow-flight                      | ALLOW_FLIGHT                  | `false`                  |
+| allow-nether                      | ALLOW_NETHER                  | `true`                   |
+| broadcast-console-to-ops          | BROADCAST_OPS                 | `true`                   |
+| broadcast-rcon-to-ops             | BROADCAST_OPS                 | `true`                   |
+| debug                             | ENABLE_DEBUG                  | `false`                  |
+| difficulty                        | DIFFICULTY                    | `easy`                   |
+| enable-command-block              | ENABLE_COMMAND_BLOCK          | `false`                  |
+| enable-jmx-monitoring             | ENABLE_JMX                    | `false`                  |
+| enable-query                      | ENABLE_QUERY                  | `false`                  |
+| enable-rcon                       | ENABLE_RCON                   | `false`                  |
+| enable-status                     | ENABLE_STATUS                 | `true`                   |
+| enforce-whitelist                 | FORCE_WHITELIST               | `false`                  |
+| entity-broadcast-range-percentage | BROADCAST_ENTITY              | `100`                    |
+| force-gamemode                    | FORCE_GAMEMODE                | `false`                  |
+| function-permission-level         | FUNC_PERMISSION_LEVEL         | `2`                      |
+| gamemode                          | GAMEMODE                      | `survival`               |
+| generate-structures               | GENERATE_STRUCTURES           | `true`                   |
+| generator-settings                | GENERATOR_SETTINGS            |                          |
+| hardcore                          | -                             | `false`                  |
+| level-name                        | LEVEL_NAME                    | `world`                  |
+| level-seed                        | LEVEL_SEED                    |                          |
+| level-type                        | LEVEL_TYPE                    | `DEFAULT`                |
+| max-build-height                  | MAX_BUILD_HEIGHT              | `256`                    |
+| max-players                       | MAX_PLAYERS                   | `20`                     |
+| max-tick-time                     | MAX_TICK_TIME                 | `60000`                  |
+| max-world-size                    | MAX_WORLD_SIZE                | `29999984`               |
+| motd                              | MOTD                          | `"Welcome to Minecraft"` |
+| network-compression-threshold     | NETWORK_COMPRESSION_THRESHOLD | `256`                    |
+| online-mode                       | ONLINE_MODE                   | `true`                   |
+| op-permission-level               | OP_PERMISSION_LEVEL           | `4`                      |
+| player-idle-timeout               | PLAYER_IDLE_TIMEOUT           | `0`                      |
+| prevent-proxy-connections         | PREVENT_PROXY_CONNECTIONS     | `false`                  |
+| pvp                               | PVP                           | `true`                   |
+| query.port                        | SERVER_PORT                   | `25565`                  |
+| rate-limit                        | RATE_LIMIT                    | `0`                      |
+| rcon.password                     | RCON_PASSWORD                 |                          |
+| rcon.port                         | RCON_PORT                     | `25575`                  |
+| require-resource-pack             | REQUIRE_RESOURCE_PACK         | `false`                  |
+| resource-pack                     | RESOURCE_PACK                 |                          |
+| resource-pack-prompt              | RESOURCE_PACK_PROMPT          |                          |
+| resource-pack-sha1                | RESOURCE_PACK_SHA1            |                          |
+| server-ip                         | SERVER_IP                     |                          |
+| server-port                       | SERVER_PORT                   | `25565`                  | 
+| snooper-enabled                   | SNOOPER_ENABLED               | `true`                   |
+| spawn-animals                     | SPAWN_ANIMALS                 | `true`                   |
+| spawn-monsters                    | SPAWN_MONSTERS                | `true`                   |
+| spawn-npcs                        | SPAWN_NPCS                    | `true`                   |
+| spawn-npcs                        | SPAWN_NPCS                    | `true`                   |
+| spawn-protection                  | SPAWN_PROTECTION              | `30`                     |
+| sync-chunk-writes                 | SYNC_CHUNK                    | `true`                   |
+| text-filtering-config             | TEXT_FILTERING                |                          |
+| use-native-transport              | NATIVE_TRANSP                 | `true`                   |
+| view-distance                     | VIEW_DISTANCE                 | `10`                     |
+| white-list                        | WHITE_LIST                    | `false`                  |
 
 ### Dynmap properties
 
@@ -359,4 +381,5 @@ command :
 |          | -> Dynmap plugin 3.2 beta 2                                    |
 |          | -> Upgrade Dynmap configuration file                           |
 |          | -> DiscordSRV plugin 1.23.0                                    |
+|          | -> Update README documentation for all input available         |
 |          |                                                                |

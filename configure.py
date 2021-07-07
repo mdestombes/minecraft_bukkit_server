@@ -66,10 +66,10 @@ def config_file():
         "hardcore": "false",
         "level-name": os.getenv(
             "LEVEL_NAME", "world"),
-        "level-type": os.getenv(
-            "LEVEL_TYPE", "DEFAULT"),
         "level-seed": os.getenv(
             "LEVEL_SEED"),
+        "level-type": os.getenv(
+            "LEVEL_TYPE", "DEFAULT"),
         "max-build-height": os.getenv(
             "MAX_BUILD_HEIGHT", 256),
         "max-players": os.getenv(
@@ -100,8 +100,12 @@ def config_file():
             "RCON_PASSWORD"),
         "rcon.port": os.getenv(
             "RCON_PORT", 25575),
+        "require-resource-pack": os.getenv(
+            "REQUIRE_RESOURCE_PACK", "false"),
         "resource-pack": os.getenv(
             "RESOURCE_PACK"),
+        "resource-pack-prompt": os.getenv(
+            "RESOURCE_PACK_PROMPT"),
         "resource-pack-sha1": os.getenv(
             "RESOURCE_PACK_SHA1"),
         "server-ip": os.getenv(
@@ -119,7 +123,7 @@ def config_file():
         "spawn-protection": os.getenv(
             "SPAWN_PROTECTION", 30),
         "sync-chunk-writes": os.getenv(
-            "SYNC_CHUNK", True),
+            "SYNC_CHUNK", "true"),
         "text-filtering-config": os.getenv(
             "TEXT_FILTERING"),
         "use-native-transport": os.getenv(
