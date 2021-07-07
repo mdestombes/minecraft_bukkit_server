@@ -2,7 +2,7 @@
 
 __*Take care, `Last` version is often in dev. Use stable version with TAG*__
 
-Docker build for managing a Minecraft Bukkit/Spigot server based on Alpine with
+Docker build for managing a Minecraft Spigot/CraftBukkit server based on Alpine with
  Dynmap, DiscordSRV and DeathBan (For Hardcore mode) module include.
 
 The first version (v1.0) of image is borrowed from bbriggs/bukkit
@@ -125,12 +125,12 @@ To start the server and accept the EULA in one fell swoop, just pass the
 `docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server
 mdestombes/minecraft_bukkit_server`
 
-### Spigot included
+### CraftBukkit included
 
-Base of container minecraft is `bukkit`, but spigot server should be run too.
-To run the spigot server, supply it as an argument like so:
+Base of container minecraft is `Spigot`, but `CraftBukkit` server should be run too.
+To run the CraftBukkit server, supply it as an argument like so:
 `docker run -it -p 25565:25565 -p 8123:8123 -e EULA=true --name minecraf_server
-mdestombes/minecraft_bukkit_server spigot`
+mdestombes/minecraft_bukkit_server craftbukkit`
 
 ### Configuration
 
@@ -353,4 +353,5 @@ command :
 |          | -> Adding Java attribute to avoid useless warning at start     |
 |          |                                                                |
 | `3.0`    | -> Change base from `openjdk:15-alpine` to `openjdk:16-alpine` |
+|          | -> Using Spigot as default instead of CraftBukkit              |
 |          |                                                                |

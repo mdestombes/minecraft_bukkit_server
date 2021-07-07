@@ -63,4 +63,4 @@ VOLUME  /minecraft/data
 
 # Update game launch the game.
 ENTRYPOINT ["/minecraft/bin/run.sh"]
-CMD ["craftbukkit"]
+CMD ["spigot"]

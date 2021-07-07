@@ -55,7 +55,7 @@ function init_plugins {
     # Stopping minecraft server
     tmux send-keys -t minecraft "stop" C-m
 
-    sleep 90
+    sleep 120
 
     echo "Upgrade Dynmap config..."
     cat /minecraft/bin/dynmap_config.txt | sed \
@@ -84,6 +84,7 @@ function init_plugins {
       echo "Restarting Minecraft server..."
 
       # Launching minecraft server
+      tmux send-keys -t minecraft "export PATH=${PATH}" C-m
       tmux send-keys -t minecraft "java -Xms1G -Xmx1G -DIReallyKnowWhatIAmDoingISwear -jar /minecraft/bin/${binary}.jar nogui" C-m
 
     fi
@@ -132,6 +133,7 @@ fi
 tmux new -s minecraft -c /minecraft/data -d
 
 # Launching minecraft server
+tmux send-keys -t minecraft "export PATH=${PATH}" C-m
 tmux send-keys -t minecraft "java -Xms1G -Xmx1G -DIReallyKnowWhatIAmDoingISwear -jar /minecraft/bin/${binary}.jar nogui" C-m
 
 # Stop server in case of signal INT or TERM
