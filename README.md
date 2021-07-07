@@ -305,50 +305,52 @@ command :
 
 ## Changelog
 
-| Tag      | Notes                                                         |
-|----------|---------------------------------------------------------------|
-| `1.0`    | -> Initialization                                             |
-|          |                                                               |
-| `2.0`    | -> Minecraft 1.15.1                                           |
-|          |                                                               |
-| `2.1`    | -> Minecraft 1.15.2                                           |
-|          | -> Deactivate Spawn visualization on Dynmap                   |
-|          |                                                               |
-| `2.2`    | -> Minecraft 1.16.2                                           |
-|          | -> Upgrade Dynmap configuration file                          |
-|          | -> Up to 80 seconds during initializing reboot server         |
-|          | -> Up to 30 seconds during stopping server                    |
-|          |                                                               |
-| `2.3`    | -> Minecraft 1.16.4                                           |
-|          | -> Dynmap plugin 3.1-beta5                                    |
-|          | -> Upgrade Dynmap configuration file                          |
-|          | -> Upgrade server.properties generation (gamemode)            |
-|          | -> Up to 90 seconds during initializing reboot server         |
-|          | -> Up to 60 seconds during stopping server                    |
-|          |                                                               |
-| `2.4`    | -> Minecraft 1.16.5                                           |
-|          | -> Dynmap plugin 3.1                                          |
-|          | -> Upgrade Dynmap configuration file                          |
-|          | -> Global upgrade server.properties generation                |
-|          |                                                               |
-| `2.5`    | -> Adding DiscordSRV plugin 1.22.0                            |
-|          | -> Adding Environment input variables for DiscordSRV          |
-|          | -> Adding DiscordSRV dedicated configuration files            |
-|          | -> Update plugins initialization post first run               |
-|          | -> Update README documentation for input available            |
-|          | -> Adding documentation to link your both Servers:            |
-|          |    - Discord                                                  |
-|          |    - Minecraft                                                |
-|          |                                                               |
-| `2.6`    | -> Adding management for Auto-Restart at first initialization |
-|          |                                                               |
-| `2.7`    | -> Correction of default value for server.properties          |
-|          | -> Correction of base config Dynmap file                      |
-|          | -> Adding plugin DeathBan 1.1.1                               |
-|          | -> Activation plugin DeathBan when Hardcore mode selected     |
-|          | -> Sort server.properties in auto config                      |
-|          |                                                               |
-| `2.8`    | -> Change base from `openjdk:8-alpine` to `openjdk:15-alpine` |
-|          | -> Change Python v2 to Python v3                              |
-|          | -> Adding Java attribute to avoid useless warning at start    |
-|          |                                                               |
+| Tag      | Notes                                                          |
+|----------|----------------------------------------------------------------|
+| `1.0`    | -> Initialization                                              |
+|          |                                                                |
+| `2.0`    | -> Minecraft 1.15.1                                            |
+|          |                                                                |
+| `2.1`    | -> Minecraft 1.15.2                                            |
+|          | -> Deactivate Spawn visualization on Dynmap                    |
+|          |                                                                |
+| `2.2`    | -> Minecraft 1.16.2                                            |
+|          | -> Upgrade Dynmap configuration file                           |
+|          | -> Up to 80 seconds during initializing reboot server          |
+|          | -> Up to 30 seconds during stopping server                     |
+|          |                                                                |
+| `2.3`    | -> Minecraft 1.16.4                                            |
+|          | -> Dynmap plugin 3.1-beta5                                     |
+|          | -> Upgrade Dynmap configuration file                           |
+|          | -> Upgrade server.properties generation (gamemode)             |
+|          | -> Up to 90 seconds during initializing reboot server          |
+|          | -> Up to 60 seconds during stopping server                     |
+|          |                                                                |
+| `2.4`    | -> Minecraft 1.16.5                                            |
+|          | -> Dynmap plugin 3.1                                           |
+|          | -> Upgrade Dynmap configuration file                           |
+|          | -> Global upgrade server.properties generation                 |
+|          |                                                                |
+| `2.5`    | -> Adding DiscordSRV plugin 1.22.0                             |
+|          | -> Adding Environment input variables for DiscordSRV           |
+|          | -> Adding DiscordSRV dedicated configuration files             |
+|          | -> Update plugins initialization post first run                |
+|          | -> Update README documentation for input available             |
+|          | -> Adding documentation to link your both Servers:             |
+|          |    - Discord                                                   |
+|          |    - Minecraft                                                 |
+|          |                                                                |
+| `2.6`    | -> Adding management for Auto-Restart at first initialization  |
+|          |                                                                |
+| `2.7`    | -> Correction of default value for server.properties           |
+|          | -> Correction of base config Dynmap file                       |
+|          | -> Adding plugin DeathBan 1.1.1                                |
+|          | -> Activation plugin DeathBan when Hardcore mode selected      |
+|          | -> Sort server.properties in auto config                       |
+|          |                                                                |
+| `2.8`    | -> Change base from `openjdk:8-alpine` to `openjdk:15-alpine`  |
+|          | -> Change Python v2 to Python v3                               |
+|          | -> Adding Java attribute to avoid useless warning at start     |
+|          |                                                                |
+| `3.0`    | -> Change base from `openjdk:15-alpine` to `openjdk:16-alpine` |
+|          |                                                                |
