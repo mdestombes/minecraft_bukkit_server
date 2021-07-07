@@ -355,4 +355,8 @@ command :
 | `3.0`    | -> Change base from `openjdk:15-alpine` to `openjdk:16-alpine` |
 |          | -> Using Spigot as default instead of CraftBukkit              |
 |          | -> Minecraft 1.17                                              |
+|          | -> Change all the Plugin management (Integrated to image)      |
+|          | -> Dynmap plugin 3.2 beta 2                                    |
+|          | -> Upgrade Dynmap configuration file                           |
+|          | -> DiscordSRV plugin 1.23.0                                    |
 |          |                                                                |

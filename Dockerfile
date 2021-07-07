@@ -28,11 +28,15 @@ WORKDIR /minecraft/downloads
 RUN wget -O /minecraft/downloads/craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.17.jar
 RUN wget -O /minecraft/downloads/spigot.jar https://cdn.getbukkit.org/spigot/spigot-1.17.jar
 
-# Download Dynmap plugin file linked version
-# From 'https://dev.bukkit.org/projects/dynmap/files'
+# Copy plugins file linked version
+# Manualy downloaded from https://www.spigotmc.org (WGET Blocked)
 WORKDIR /minecraft/downloads/plugins
-RUN wget -O /minecraft/downloads/plugins/dynmap.jar https://media.forgecdn.net/files/3242/277/Dynmap-3.1-spigot.jar
-RUN wget -O /minecraft/downloads/plugins/discorsrv.jar https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.22.0/DiscordSRV-Build-1.22.0.jar
+# https://www.spigotmc.org/resources/dynmap.274/ (v3.2 beta 2)
+COPY plugins/dynmap.jar /minecraft/downloads/plugins/
+# https://www.spigotmc.org/resources/discordsrv.18494/ (v1.23.0)
+COPY plugins/discorsrv.jar /minecraft/downloads/plugins/
+# https://www.spigotmc.org/resources/deathban.64283/ (v1.1.1)
+COPY plugins/deathban.jar /minecraft/downloads/plugins/hardcore/
 
 # Copy Bukkit, Spigot and Plugins
 WORKDIR /minecraft/bin
@@ -41,11 +45,6 @@ RUN cp /minecraft/downloads/spigot.jar /minecraft/bin/spigot.jar
 
 # Expose needed port
 EXPOSE ${SERVER_PORT} ${DYNMAP_PORT}
-
-# Copy plugins
-# Manualy downloaded from https://www.spigotmc.org (WGET Blocked)
-# https://www.spigotmc.org/resources/deathban.64283/ (v1.1.1)
-COPY plugins/deathban.jar /minecraft/downloads/plugins/hardcore/
 
 # Copy runner
 COPY run.sh /minecraft/bin/run.sh
