@@ -383,3 +383,5 @@ command :
 |          | -> DiscordSRV plugin 1.23.0                                    |
 |          | -> Update README documentation for all input available         |
 |          |                                                                |
+| `3.1`    | -> Minecraft 1.17.1                                            |
+|          |                                                                |
