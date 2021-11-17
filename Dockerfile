@@ -20,6 +20,7 @@ RUN apk update &&\
         wget \
         git \
         bash \
+        nano \
         python3
 
 # Download last version
