@@ -387,3 +387,10 @@ command :
 |          |                                                                |
 | `3.1`    | -> Minecraft 1.17.1                                            |
 |          |                                                                |
+| `3.2`    | -> Correction of default value for server.properties           |
+|          | -> DiscordSRV plugin 1.24.0                                    |
+|          | -> Upgrade DiscordSRV configuration files                      |
+|          | -> Dynmap plugin v3.2 beta 3                                   |
+|          | -> Upgrade Dynmap configuration file                           |
+|          | -> Add minimum and maximum memory used by server               |
+|          |                                                                |
