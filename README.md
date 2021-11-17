@@ -67,11 +67,11 @@ variables is included below, along with their defaults:
 | hardcore                          | -                             | `false`                  |
 | level-name                        | LEVEL_NAME                    | `world`                  |
 | level-seed                        | LEVEL_SEED                    |                          |
-| level-type                        | LEVEL_TYPE                    | `DEFAULT`                |
+| level-type                        | LEVEL_TYPE                    | `default`                |
 | max-build-height                  | MAX_BUILD_HEIGHT              | `256`                    |
 | max-players                       | MAX_PLAYERS                   | `20`                     |
 | max-tick-time                     | MAX_TICK_TIME                 | `60000`                  |
-| max-world-size                    | MAX_WORLD_SIZE                | `29999984`               |
+| max-world-size                    | MAX_WORLD_SIZE                | `10000`                  |
 | motd                              | MOTD                          | `"Welcome to Minecraft"` |
 | network-compression-threshold     | NETWORK_COMPRESSION_THRESHOLD | `256`                    |
 | online-mode                       | ONLINE_MODE                   | `true`                   |

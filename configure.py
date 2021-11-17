@@ -69,7 +69,7 @@ def config_file():
         "level-seed": os.getenv(
             "LEVEL_SEED"),
         "level-type": os.getenv(
-            "LEVEL_TYPE", "DEFAULT"),
+            "LEVEL_TYPE", "default"),
         "max-build-height": os.getenv(
             "MAX_BUILD_HEIGHT", 256),
         "max-players": os.getenv(
@@ -77,14 +77,14 @@ def config_file():
         "max-tick-time": os.getenv(
             "MAX_TICK_TIME", 60000),
         "max-world-size": os.getenv(
-            "MAX_WORLD_SIZE", 29999984),
+            "MAX_WORLD_SIZE", 10000),
         "motd": os.getenv(
             "MOTD"),
         "network-compression-threshold": os.getenv(
             "NETWORK_COMPRESSION_THRESHOLD", 256),
         "online-mode": os.getenv(
             "ONLINE_MODE", "true"),
-        "os-permission-level": os.getenv(
+        "op-permission-level": os.getenv(
             "OP_PERMISSION_LEVEL", 4),
         "player-idle-timeout": os.getenv(
             "PLAYER_IDLE_TIMEOUT", 0),
