@@ -85,7 +85,7 @@ function init_plugins {
 
       # Launching minecraft server
       tmux send-keys -t minecraft "export PATH=${PATH}" C-m
-      tmux send-keys -t minecraft "java -Xms1G -Xmx1G -DIReallyKnowWhatIAmDoingISwear -jar /minecraft/bin/${binary}.jar nogui" C-m
+      tmux send-keys -t minecraft "java -Xms${LOWER_MEM} -Xmx${UPPER_MEM} -DIReallyKnowWhatIAmDoingISwear -jar /minecraft/bin/${binary}.jar nogui" C-m
 
     fi
 
@@ -134,7 +134,7 @@ tmux new -s minecraft -c /minecraft/data -d
 
 # Launching minecraft server
 tmux send-keys -t minecraft "export PATH=${PATH}" C-m
-tmux send-keys -t minecraft "java -Xms1G -Xmx1G -DIReallyKnowWhatIAmDoingISwear -jar /minecraft/bin/${binary}.jar nogui" C-m
+tmux send-keys -t minecraft "java -Xms${LOWER_MEM} -Xmx${UPPER_MEM} -DIReallyKnowWhatIAmDoingISwear -jar /minecraft/bin/${binary}.jar nogui" C-m
 
 # Stop server in case of signal INT or TERM
 trap stop INT

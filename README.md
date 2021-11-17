@@ -38,6 +38,8 @@ variables is included below, along with their defaults:
 | ------------------------------|-------------------------------|--------------------------|
 | Auto restart after init       | AUTO_RESTART                  | `true`                   |
 | Force configuration at start  | FORCE_CONFIG                  | `false`                  |
+| Minimum memory used by server | LOWER_MEM                     | `1G`                     |
+| Maximum memory used by server | UPPER_MEM                     | `1G`                     |
 
 ### Server properties
 
