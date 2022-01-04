@@ -401,4 +401,5 @@ command :
 |          | -> Upgrade Dynmap configuration file to deactivate webchat     |
 |          |                                                                |
 | `3.4`    | -> Minecraft 1.18.1                                            |
+|          | -> Dynmap plugin v3.3-beta-4                                   |
 |          |                                                                |
