@@ -67,6 +67,7 @@ variables is included below, along with their defaults:
 | generate-structures               | GENERATE_STRUCTURES           | `true`                   |
 | generator-settings                | GENERATOR_SETTINGS            |                          |
 | hardcore                          | -                             | `false`                  |
+| hide-online-players               | HIDE_ONLINE_PLAYERS           | `false`                  |
 | level-name                        | LEVEL_NAME                    | `world`                  |
 | level-seed                        | LEVEL_SEED                    |                          |
 | level-type                        | LEVEL_TYPE                    | `default`                |
@@ -90,7 +91,8 @@ variables is included below, along with their defaults:
 | resource-pack-prompt              | RESOURCE_PACK_PROMPT          |                          |
 | resource-pack-sha1                | RESOURCE_PACK_SHA1            |                          |
 | server-ip                         | SERVER_IP                     |                          |
-| server-port                       | SERVER_PORT                   | `25565`                  | 
+| server-port                       | SERVER_PORT                   | `25565`                  |
+| simulation-distance               | SIMULATION_DISTANCE           | `10`                     |
 | snooper-enabled                   | SNOOPER_ENABLED               | `true`                   |
 | spawn-animals                     | SPAWN_ANIMALS                 | `true`                   |
 | spawn-monsters                    | SPAWN_MONSTERS                | `true`                   |
@@ -279,7 +281,7 @@ Don't be afraid, the procedure has followings...
 ### DiscordSRV plugin configuration
 
 The DiscordSRV configuration is made with the input environment variable
-mentioned upper. So... Your lonmy need is to put them at the initialization
+mentioned upper. So... You only need to set them to initialization
 of your container as:
 `docker run -it -v /my/path/to/minecraft:/minecraft/data/:rw -p 25565:25565
 -p 8123:8123 -e EULA=true -e DISCORD_BOT_TOKEN=[the_bot_token]
@@ -302,7 +304,7 @@ stop running process, to avoid lost data.
 
 /!\ The default timeout of command `stop` from docker command is 10 second.
 
-That's why I highly recommend to use the following parameter to use the `stop`
+That's why I highly recommend using the following parameter to use the `stop`
 command :
 
 `docker stop -t 70 minecraf_server`
@@ -396,4 +398,5 @@ command :
 |          |                                                                |
 | `3.3`    | -> Change base from `openjdk:16-alpine` to `openjdk:17-alpine` |
 |          | -> Minecraft 1.18                                              |
+|          | -> Add new parameter to input environment variables            |
 |          |                                                                |

@@ -64,6 +64,8 @@ def config_file():
         "generator-settings": os.getenv(
             "GENERATOR_SETTINGS"),
         "hardcore": "false",
+        "hide-online-players": os.getenv(
+            "HIDE_ONLINE_PLAYERS", "false"),
         "level-name": os.getenv(
             "LEVEL_NAME", "world"),
         "level-seed": os.getenv(
@@ -112,6 +114,8 @@ def config_file():
             "SERVER_IP"),
         "server-port": os.getenv(
             "SERVER_PORT", 25565),
+        "simulation-distance": os.getenv(
+            "SIMULATION_DISTANCE", 10),
         "snooper-enabled": os.getenv(
             "SNOOPER_ENABLED", "true"),
         "spawn-animals": os.getenv(
