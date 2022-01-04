@@ -395,4 +395,5 @@ command :
 |          | -> Add minimum and maximum memory used by server               |
 |          |                                                                |
 | `3.3`    | -> Change base from `openjdk:16-alpine` to `openjdk:17-alpine` |
+|          | -> Minecraft 1.18                                              |
 |          |                                                                |

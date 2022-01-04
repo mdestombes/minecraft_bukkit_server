@@ -28,8 +28,8 @@ RUN apk update &&\
 # Download last version
 # From 'https://getbukkit.org'
 WORKDIR /minecraft/downloads
-RUN wget -O /minecraft/downloads/craftbukkit.jar https://download.getbukkit.org/craftbukkit/craftbukkit-1.17.1.jar
-RUN wget -O /minecraft/downloads/spigot.jar https://download.getbukkit.org/spigot/spigot-1.17.1.jar
+RUN wget -O /minecraft/downloads/craftbukkit.jar https://download.getbukkit.org/craftbukkit/craftbukkit-1.18.jar
+RUN wget -O /minecraft/downloads/spigot.jar https://download.getbukkit.org/spigot/spigot-1.18.jar
 
 # Copy plugins file linked version
 # Manualy downloaded from https://www.spigotmc.org (WGET Blocked)
