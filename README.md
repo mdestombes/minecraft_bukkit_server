@@ -400,4 +400,5 @@ command :
 |          | -> Minecraft 1.18                                              |
 |          | -> Add new parameter to input environment variables            |
 |          | -> Dynmap plugin v3.3-beta-1                                   |
+|          | -> Upgrade Dynmap configuration file to deactivate webchat     |
 |          |                                                                |
