@@ -399,4 +399,5 @@ command :
 | `3.3`    | -> Change base from `openjdk:16-alpine` to `openjdk:17-alpine` |
 |          | -> Minecraft 1.18                                              |
 |          | -> Add new parameter to input environment variables            |
+|          | -> Dynmap plugin v3.3-beta-1                                   |
 |          |                                                                |
