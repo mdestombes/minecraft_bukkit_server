@@ -1,7 +1,5 @@
 # Minecraft - Docker
 
-__*Take care, `Last` version is often in dev. Use stable version with TAG*__
-
 Docker build for managing a Minecraft Spigot/CraftBukkit server based on Alpine
  with integrated plugin, configurable at starting as:
 - Dynmap,
