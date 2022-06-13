@@ -36,7 +36,7 @@ RUN wget -O /minecraft/downloads/spigot.jar https://download.getbukkit.org/spigo
 WORKDIR /minecraft/downloads/plugins
 # https://www.spigotmc.org/resources/dynmap.274/ (v3.3-beta-4)
 COPY plugins/dynmap.jar /minecraft/downloads/plugins/
-# https://www.spigotmc.org/resources/discordsrv.18494/ (v1.24.0)
+# https://www.spigotmc.org/resources/discordsrv.18494/ (v1.25.1)
 COPY plugins/discorsrv.jar /minecraft/downloads/plugins/
 # https://www.spigotmc.org/resources/deathban.64283/ (v1.1.1)
 COPY plugins/deathban.jar /minecraft/downloads/plugins/hardcore/

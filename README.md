@@ -406,4 +406,6 @@ command :
 |          |                                                                |
 | `3.5`    | -> Minecraft 1.19                                              |
 |          | -> Correction of default value for server.properties           |
+|          | -> DiscordSRV plugin 1.25.1                                    |
+|          | -> Upgrade DiscordSRV configuration files                      |
 |          |                                                                |
