@@ -68,7 +68,7 @@ variables is included below, along with their defaults:
 | hide-online-players               | HIDE_ONLINE_PLAYERS           | `false`                  |
 | level-name                        | LEVEL_NAME                    | `world`                  |
 | level-seed                        | LEVEL_SEED                    |                          |
-| level-type                        | LEVEL_TYPE                    | `default`                |
+| level-type                        | LEVEL_TYPE                    | `minecraft\:normal`      |
 | max-build-height                  | MAX_BUILD_HEIGHT              | `256`                    |
 | max-players                       | MAX_PLAYERS                   | `20`                     |
 | max-tick-time                     | MAX_TICK_TIME                 | `60000`                  |
