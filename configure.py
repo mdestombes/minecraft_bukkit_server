@@ -71,7 +71,7 @@ def config_file():
         "level-seed": os.getenv(
             "LEVEL_SEED"),
         "level-type": os.getenv(
-            "LEVEL_TYPE", "default"),
+            "LEVEL_TYPE", "minecraft\:normal"),
         "max-build-height": os.getenv(
             "MAX_BUILD_HEIGHT", 256),
         "max-players": os.getenv(

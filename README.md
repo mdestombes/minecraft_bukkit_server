@@ -405,4 +405,5 @@ command :
 |          | -> Upgrade Dynmap configuration file                           |
 |          |                                                                |
 | `3.5`    | -> Minecraft 1.19                                              |
+|          | -> Correction of default value for server.properties           |
 |          |                                                                |
