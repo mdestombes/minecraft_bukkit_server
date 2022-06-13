@@ -310,7 +310,7 @@ command :
 ---
 
 ## Important point in available volumes
-+ __/minecraft/data__: Working data directory wich contains:
++ __/minecraft/data__: Working data directory which contains:
   + /minecraft/data/logs: Logs directory
   + /minecraft/data/plugin: Plugins directory
   + /minecraft/data/server.properties: Minecraft server properties
