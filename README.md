@@ -404,3 +404,5 @@ command :
 |          | -> Dynmap plugin v3.3-beta-4                                   |
 |          | -> Upgrade Dynmap configuration file                           |
 |          |                                                                |
+| `3.5`    | -> Minecraft 1.19                                              |
+|          |                                                                |
