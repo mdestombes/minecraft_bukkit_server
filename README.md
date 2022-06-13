@@ -408,4 +408,6 @@ command :
 |          | -> Correction of default value for server.properties           |
 |          | -> DiscordSRV plugin 1.25.1                                    |
 |          | -> Upgrade DiscordSRV configuration files                      |
+|          | -> Dynmap plugin v3.4-SNAPSHOT (Compatible with v1.19)         |
+|          | -> Upgrade Dynmap configuration file                           |
 |          |                                                                |

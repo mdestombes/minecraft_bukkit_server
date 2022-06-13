@@ -15,6 +15,10 @@
 #   The definitions of these templates are in normal-hi_boost_xhi.txt, nether-hi_boost_xhi.txt, and the_end-hi_boost_xhi.txt
 deftemplatesuffix: hires
 
+# Set default tile scale (0 = 128px x 128x, 1 = 256px x 256px, 2 = 512px x 512px, 3 = 1024px x 1024px, 4 = 2048px x 2048px) - 0 is default
+# Note: changing this value will result in all maps that use the default value being required to be fully rendered
+#defaulttilescale: 0
+
 # Map storage scheme: only uncomment one 'type' value
 #  filetree: classic and default scheme: tree of files, with all map data under the directory indicated by 'tilespath' setting
 #  sqlite: single SQLite database file (this can get VERY BIG), located at 'dbfile' setting (default is file dynmap.db in data directory)
@@ -35,7 +39,14 @@ storage:
   #userid: dynmap
   #password: dynmap
   #prefix: ""
-  #flags: "?allowReconnect=true"
+  #flags: "?allowReconnect=true&autoReconnect=true"
+  #
+  # AWS S3 backet web site
+  #type: aws_s3
+  #bucketname: "dynmap-bucket-name"
+  #region: us-east-1
+  #aws_access_key_id: "<aws-access-key-id>"
+  #aws_secret_access_key: "<aws-secret-access-key>"  
   
 components:
   - class: org.dynmap.ClientConfigurationComponent
@@ -289,7 +300,7 @@ custom-colors-support: true
 # Control updating of player faces, once loaded (if faces are being managed by other apps or manually)
 #refreshskins: false
 
-# Customize URL used for fetching player skins (%player% is macro for name)
+# Customize URL used for fetching player skins (%player% is macro for name, %uuid% for UUID)
 skin-url: "http://skins.minecraft.net/MinecraftSkins/%player%.png"
 
 # Enable skins via SkinsRestorer plugin instead of internal legacy implementation (disabled by default)
@@ -322,6 +333,10 @@ tilespath: web/tiles
 
 # The path where the web-files are located.
 webpath: web
+
+# If set to false, disable extraction of webpath content (good if using custom web UI or 3rd party web UI)
+# Note: web interface is unsupported in this configuration - you're on your own
+update-webpath-files: true
 
 # The path were the /dynmapexp command exports OBJ ZIP files
 exportpath: export
@@ -396,6 +411,7 @@ player-sort-permission-nodes:
 #    X-Custom-Header-Of-Mine: "MyHeaderValue"
 
 # Trusted proxies for web server - which proxy addresses are trusted to supply valid X-Forwarded-For fields
+#   This now supports both IP address, and subnet ranges (e.g. 192.168.1.0/24 or 202.24.0.0/14 )
 trusted-proxies:
   - "127.0.0.1"
   - "0:0:0:0:0:0:0:1"
@@ -484,6 +500,13 @@ soft-ref-cache: true
 #enterexitUseTitle: true
 # Set true if new enter messages should supercede pending exit messages (vs being queued in order), default false
 #enterReplacesExits: true
+
+# Published public URL for Dynmap server (allows users to use 'dynmap url' command to get public URL usable to access server
+# If not set, 'dynmap url' will not return anything.  URL should be fully qualified (e.g. https://mc.westeroscraft.com/)
+#publicURL: http://my.greatserver.com/dynmap
+
+# Send this message if the player does not have permission to use the command
+noPermissionMsg: "You don't have permission to use this command!"
 
 # Set to true to enable verbose startup messages - can help with debugging map configuration problems
 # Set to false for a much quieter startup log

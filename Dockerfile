@@ -34,7 +34,8 @@ RUN wget -O /minecraft/downloads/spigot.jar https://download.getbukkit.org/spigo
 # Copy plugins file linked version
 # Manualy downloaded from https://www.spigotmc.org (WGET Blocked)
 WORKDIR /minecraft/downloads/plugins
-# https://www.spigotmc.org/resources/dynmap.274/ (v3.3-beta-4)
+# https://www.spigotmc.org/resources/dynmap.274/ (v3.4-beta-3)
+# Origin debug https://dynmap.us/builds/dynmap/
 COPY plugins/dynmap.jar /minecraft/downloads/plugins/
 # https://www.spigotmc.org/resources/discordsrv.18494/ (v1.25.1)
 COPY plugins/discorsrv.jar /minecraft/downloads/plugins/
