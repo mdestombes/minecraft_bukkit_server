@@ -55,7 +55,7 @@ function init_plugins {
     # Stopping minecraft server
     tmux send-keys -t minecraft "stop" C-m
 
-    sleep 120
+    sleep 240
 
     echo "Upgrade Dynmap config..."
     cat /minecraft/bin/dynmap_config.txt | sed \
